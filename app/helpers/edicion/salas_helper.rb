@@ -1,0 +1,2 @@
+module Edicion::SalasHelper
+end

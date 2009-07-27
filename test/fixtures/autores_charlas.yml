@@ -1,0 +1,15 @@
+xavi_y_su_charla:
+  autor_id: 1
+  charla_id: 1
+jaime_y_su_charla:
+  autor_id: 2
+  charla_id: 2
+dani_y_su_charla:
+  autor_id: 3
+  charla_id: 3
+christos_y_su_charla_compartida:
+  autor_id: 4
+  charla_id: 4
+sergio_y_su_charla_compartida:
+  autor_id: 5
+  charla_id: 5

@@ -1,0 +1,59 @@
+<table border="0" width="100%">
+	<!-- fila para cada hora -->
+	<% dia_antiguo = 0 %>
+	<% @fechas.each do |f| %>
+		<% if dia_antiguo != f.day then %>
+		<tr>
+			<td colspan="<%= @salas.size + 1%>" align="center"><h2 align="center"><%= f.strftime('%d %B %Y') %></h2></td>
+		</tr>
+		<!-- cabecera de salas -->
+		<tr class="index">
+			<td><b>Hora</b></td>
+			<% @salas.each do |s| %>
+				<td width="45%"><b>Sala <%= s.nombre %></b></td>
+			<% end %>
+		</tr>		
+		<% dia_antiguo = f.day %>
+		<% end %>
+		
+		<% if (f.strftime("%H:%M") == "09:30") or (f.strftime("%H:%M") == "10:00") then%>
+		<tr class="bienvenida">
+			<td>09:00</td>
+			<td colspan="<%= @salas.size %>"><center><em>Acreditaciones / Bienvenida</em></center></td>
+		</tr>		
+		<% end %>			
+		
+		<% if (f.strftime("%H:%M") == "12:45") then%>
+		<tr class="coffeebreak">
+			<td>12:15</td>
+			<td colspan="<%= @salas.size %>"><center><em>Coffee Break de 30 minutos</em></center></td>
+		</tr>		
+		<% end %>	
+		
+		<% if (f.strftime("%H:%M") == "16:15") then%>
+		<tr class="comida">
+			<td>15:00</td>
+			<td colspan="<%= @salas.size %>"><center><em>COMIDA</em></center></td>
+		</tr>		
+		<% end %>			
+		
+		<% if (f.strftime("%H:%M") == "18:45") then%>
+		<tr class="coffeebreak">
+			<td>18:15</td>
+			<td colspan="<%= @salas.size %>"><center><em>Coffee Break de 30 minutos</em></center></td>
+		</tr>		
+		<% end %>				
+	
+	    <tr class="fila<%= cycle('odd', 'even') %>">
+	    <td><%= f.strftime('%H:%M') %></td>
+	    <% @salas.each do |s| %>
+	    <td>
+	    <% Charla.por_sala_y_fecha(s, f).each do |c| %>
+			<% c.confirmada ? clase = 'confirmada' : clase = 'noconfirmada' %>
+			<a href="/charlas/lista#<%= c.id %>" class="<%= clase %>"><%= h(c.titulo) %></a><br />
+	    <% end %>    
+	    </td>
+	    <% end %>
+	    </tr>
+	<% end %>
+</table>

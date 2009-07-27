@@ -1,0 +1,24 @@
+- title "Administración: Ficha email"
+
+%div{:class => "item"}
+  %div{:class => "item_details"}
+    %h3
+      Revisar correo
+  %div{:class => "item_content"}
+    %p
+      %span Asunto
+      [CONFERENCIARAILS]
+      =h @email.subject
+    %p
+      %span Enviado
+      = format @email.sent_on
+    %p
+      %span Receptores
+      = @email.recipients
+    %p 
+      %span Mensaje
+    %p
+      = h @email.body
+    %br
+
+    %p= link_to "Volver a la lista de correos", emails_path

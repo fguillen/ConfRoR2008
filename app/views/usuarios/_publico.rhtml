@@ -1,0 +1,36 @@
+<div class="item">
+	<table>
+		<tr class="title">
+			<td colspan="4">Personas registradas con perfil público</td>
+		</tr>
+		
+		<tr class="index">
+			<th></th>
+			<th>Nombre</th>
+			<th>Blog</th>
+			<th>Empresa</th>
+		</tr>
+		
+		<% usuarios.each do |usuario| %>
+			<tr class="<%= cycle('odd', 'even') %>" id="<%= usuario.id %>">
+				<td width="37px">
+				  <%=
+      		  gravatar(
+      		    usuario.email, 
+      		    :size => 32, 
+      		    :default => "#{base_url}/images/avatar.png",
+      		    :alt => "avatar de #{usuario.nombre_completo}"
+      		  )
+      		%>
+				</td>
+				<td><%= h(usuario.nombre_completo) %></td>
+				<td><%= link_to "#{h usuario.perfil.titulo_blog}", check_url(usuario.perfil.url_blog) %></td>
+				<% unless usuario.perfil.url_empresa.blank? %>
+					<td><%= link_to(usuario.perfil.empresa, check_url(usuario.perfil.url_empresa)) %></td>
+				<% else %>
+					<td><%= h(usuario.perfil.empresa) %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	</table>
+</div>

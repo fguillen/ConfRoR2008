@@ -1,0 +1,42 @@
+Lo único que hay que hacer es el front:
+------------------------------
+
+Sin login:
+----------------
+* http://confror.fernandoguillen.info/charlas/calendario
+* http://confror.fernandoguillen.info/charlas/lista [1]
+* http://confror.fernandoguillen.info/charlas/ver/55 [1]
+* http://confror.fernandoguillen.info/autores/lista
+* http://confror.fernandoguillen.info/asistentes
+* http://confror.fernandoguillen.info/instrucciones
+* http://confror.fernandoguillen.info/signup
+* http://confror.fernandoguillen.info/signup -> siguiente vista la de las 'gracias'
+
+
+Con login:
+----------------
+* http://confror.fernandoguillen.info/charlas/calendario [1][2]
+* http://confror.fernandoguillen.info/usuarios/7/perfil
+
+
+[1] Atención en charlas/lista, charlas/ver y charlas/calendario(con login) porque hay funcionalidades nuevas que he hecho yo y que están super mal colocadas y maquetadas y puede que ni las veas:
+
+* Comentarios
+* Voto
+* Yo voy/No voy
+
+[2] El rollo calendario y mi_calendario lo he unificado en una sólo página.. si estás logeado te sale a cuales vas y sino pues no y ya.. y si estás logeado puedes decir voy/no_voy ahí mismo.. Le de mi_calendario parece redundante.
+
+
+AAAhhh.. el blog wordpress:
+----------------
+* http://www.conferenciarails.org/
+
+Igual esto no es tan necesario.. igual con cambiar la cabecera vale.
+
+
+Flujo de navegación:
+---------------
+Porfa haz indicaciones de flujos de navegación incorrectos que seguro que los hay.
+
+También de arquitectura de información porque yo he puesto cosas por ahí de comentarios y votos y no sé si están bien.

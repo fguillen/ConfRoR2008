@@ -1,0 +1,35 @@
+xavi:
+  id: 1
+  nombre: Xavier
+  apellidos: Noria
+  resumen: Xavi es un programador de ASPGems
+  web: http://www.aspgems.com
+  email: fxn@aspgems.com
+jaime:
+  id: 2
+  nombre: Jaime
+  apellidos: Iniesta Alemán
+  resumen: Jaime es un programador freelance
+  web: http://www.railes.net
+  email: jaime@railes.net
+dani:
+  id: 3
+  nombre: Daniel
+  apellidos: Escribano
+  resumen: Daniel trabaja en Flowers in Space
+  web: http://www.flowersinspace.com
+  email: dani55555@gmail.com
+christos:
+  id: 4
+  nombre: Christos
+  apellidos: Zisopoulos
+  resumen: All around systems guy
+  web: http://www.the-cocktail.com
+  email: christos@the-cocktail.com
+sergio:
+  id: 5
+  nombre: Sergio
+  apellidos: Gil
+  resumen: Experto en Ruby
+  web: http://www.the-cocktail.com
+  email: sergio@the-cocktail.com  

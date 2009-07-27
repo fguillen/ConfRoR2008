@@ -1,0 +1,26 @@
+<%= error_messages_for 'autor' %>
+
+<!--[form:autor]-->
+<p><label for="autor_nombre">Nombre</label><br/>
+<%= text_field 'autor', 'nombre'  %></p>
+
+<p><label for="autor_apellidos">Apellidos</label><br/>
+<%= text_field 'autor', 'apellidos'  %></p>
+
+<p><label for="autor_resumen">Resumen</label><br/>
+<%= text_area 'autor', 'resumen', {:cols => '135', :rows => '5'}  %></p>
+
+<p><label for="autor_web">Web</label><br/>
+<%= text_field 'autor', 'web'  %></p>
+
+<p><label for="autor_email">E-mail</label><br/>
+<%= text_field 'autor', 'email'  %></p>
+
+<p><label for="autor_avatar">Avatar</label><br/>
+<%= file_column_field 'autor', 'avatar' %></p>
+
+<p><label for="autor_notas">Notas (internas)</label><br/>
+<%= text_area 'autor', 'notas', {:cols => '90', :rows => '5'}  %></p>		   
+
+<!--[eoform:autor]-->
+

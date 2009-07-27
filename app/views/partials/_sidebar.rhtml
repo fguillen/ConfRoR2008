@@ -1,0 +1,37 @@
+<div id="register">	
+	<% if logged_in? %>
+		<%= render :partial => 'sesion/show' %>
+	<% else %>
+		<%= render :partial => 'sesion/new' %>
+	<% end %>
+</div>
+
+<div id="credits">
+	<div id="institutions">
+		<h5>Con el apoyo institucional de</h5>
+    <%= link_to image_tag("/images/logos/aytomadrid_02.jpg", :alt=>'Madrid Tecnología',:title=>'Madrid Tecnología'), 'http://www.madridtecnologia.es' %>
+	</div>
+	
+	<div id="sponsors">
+		<h5>Patrocinan</h5>
+		<%= link_to image_tag("/images/logos/aspgems.png", :alt=>'ASPGems',:title=>'ASPGems'), 'http://www.aspgems.com' %>
+		<%= link_to image_tag("/images/logos/thecocktail.png", :alt=>'The Cocktail',:title=>'The Cocktail'), 'http://www.the-cocktail.com' %>
+		<%= link_to image_tag("/images/logos/secuoyas.png", :alt=>'Secuoyas',:title=>'Secuoyas'), 'http://www.secuoyas.com' %>
+		<%= link_to image_tag("/images/logos/flowers.png", :alt=>'Flowers in Space',:title=>'Flowers in Space'), 'http://flowersinspace.com/ ' %>
+    <%= link_to image_tag("/images/logos/vorago.png", :alt=>'Vorago',:title=>'Vorago'), 'http://www.vorago.es' %>
+    <%= link_to image_tag("/images/logos/accens_logo.png", :alt=>'Accens',:title=>'Accens'), 'http://www.accens.com' %>
+	</div>
+	
+	<div id="acknowledgments">
+		<h5>Socios</h5>
+		<%= link_to image_tag("/images/logos/etsit.png", :alt=>'ETSIT UPM',:title=>'ETSIT UPM'), 'http://www.etsit.upm.es' %>
+		<%= link_to image_tag("/images/logos/teledit.png", :alt=>'DIT UPM',:title=>'DIT UPM'), 'http://internetng.dit.upm.es' %>
+	</div>
+	
+
+	
+	<div id="support">
+		<h5>Colaborador</h5>
+        <%= link_to image_tag("/images/logos/hotelsearch.png", :alt=>'HotelSearch.com',:title=>'Unete a nuestro equipo'), 'http://jobs.hotelsearch.com/index.spanish.html' %>
+	</div>
+</div>

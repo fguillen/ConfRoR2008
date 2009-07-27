@@ -1,0 +1,30 @@
+<% title "Instrucciones de registro" %>
+
+<div id="items">
+	<h2>Instrucciones de registro</h2>
+	<p><em>Estas son las instrucciones para registrarte en la Conferencia Rails 2008</em></p>
+	
+	<ul>
+		<li>Lo primero de todo: <%= link_to '¡Regístrate!', signup_url %></li>
+		<li>Deberás activar tu cuenta haciendo click en el enlace que te llegará por correo.</li>
+		<li>Sigue las instrucciones para realizar el pago (el precio de la entrada es de <strong> 80 €</strong>).</li>
+		<li>Conectándote a esta web podrás ver el estado de tu registro.</li>
+		<li>A la dirección de correo que especifiques te podrá llegar información adicional sobre la Conferencia Rails 2008.</li>
+		<li>El día 13 se celebrará una cena tras la conferencia. Si tienes pensado asistir marca por favor la casilla correspondiente.</li>
+		<li>El precio de la cena es de <strong>40 €</strong> y no está incluida en el precio de la conferencia.</li>
+		<li>Los detalles sobre la cena los podrás encontrar en el <%= link_to 'blog', 'http://www.conferenciarails.org/' %> de la conferencia.</li>
+		<li>
+			<strong> Es necesario pagar la cena con antelación.</strong>
+			Si ya has pagado la entrada a la conferencia, tendrás que hacer una nueva transferencia por el importe de la cena. 
+			Si aún no has pagado, puedes hacer una transferencia por el importe total de 120 €.
+		</li>
+		<li>Podrás ver también, conectándote a esta web, si hemos recibido el pago de la cena.</li>
+		<li>
+  			Si necesitas una <strong>factura</strong> simplemente rellena los datos de facturación en tu perfil. 
+  			Las facturas podrán recogerse durante la conferencia.
+  		</li>
+		<li>Si tienes alguna duda sobre el proceso de registro, escríbenos a <%= mail_to 'registro@conferenciarails.org' %></li>
+	</ul>
+</div>
+
+

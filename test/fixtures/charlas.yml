@@ -1,0 +1,24 @@
+charla_de_xavi:
+  id: 1
+  titulo: Rails desde el código
+  resumen: En esta charla bajaremos un poco a las entrañas de Rails. A través de fragmentos seleccionados de código fuente echaremos un vistazo a la implementacion de aspectos importantes del framework como la recarga de clases o el flujo interno de una peticion. Por el camino entenderemos los idiomas avanzados de Ruby en los que Rails basa su magia.
+  fecha: <%= Time.now.to_s %>
+  duracion: 60
+charla_de_jaime:
+  id: 2
+  titulo: Cómo programar una araña web en Rails
+  resumen: Taller práctico en el que se explicará cómo construir desde cero una araña web que sea capaz de rastrear las URL indicadas, y extraer de ella sus contenidos (titulo, palabras clave, descripción) y enlaces a otras webs, usando librerías como hpricot, open-uri, expresiones regulares y automatización de tareas en el servidor.
+  fecha: <%= Time.now.to_s %>  
+  duracion: 60
+charla_de_dani:
+  id: 3
+  titulo: Rails para torpes como yo
+  resumen: Los que no nacimos genéticamente programados para ser expertos en explicaciones técnicas, sufrimos mucho a la hora de transmitir que es Ruby on Rails y que significa que nos guste y que estemos felices por programar proyectos en este lenguaje.
+  fecha: <%= Time.now.to_s %> 
+  duracion: 60
+charla_christos_y_sergio:
+  id: 4
+  titulo: Rails against the machine
+  resumen: Cómo crear entornos virtuales clonables para el despliegue de aplicaciones Rails con Capistrano 2 y XEN.
+  fecha: <%= Time.now.to_s %>
+  duracion: 60  

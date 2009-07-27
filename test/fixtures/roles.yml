@@ -1,0 +1,12 @@
+one:
+  id: 1
+  title: admin
+two:
+  id: 2
+  title: organizador
+three:
+  id: 3
+  title: asistente
+four:
+  id: 4
+  title: ponente

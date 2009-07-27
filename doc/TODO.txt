@@ -1,0 +1,37 @@
+---
+INSTRUCCIONES:
+Cuando alguien esté currando en uno de estos puntos que cambie el * por un + y poner quien.. ejemplo:
++ [fguillen] hacerlo todo super guay
+
+Cuando algo esté hecho cambiar el * por un - y poner quien lo ha hecho.. ejemplo:
+- [fguillen] hacerlo todo super guay
+
+Estas instrucciones son para hacerles caso o no :=)
+---
+
+* Mirar lo de 'remember login' rollito cookie porque está implementado pero no sé si está funcionando.
+* Unificar charla/ponencia que en cada sitio está de una manera
+* Ajax en: voto, voy_a_ir, no_voy_a_ir: en charlas/show y en charlas/calendario
+* Ajax en: comentarios.. puede ser?
+* Saber en qué punto de menú estoy para cambiarle el estilo
+* Quitar opción, campo y todo lo que tenga que ver con Avatar: usar gravatar para mostrar avatares, y mostrar el monigote por defecto sino tiene gravatar
+* Tests en modelos y controladores originales de la aplicación registro y la aplicación ponencias.
+* Mirar los tests que he comentado porque fallaban en: SessionControllerTest y UsuariosControllerTest
+* Instalar plugin: http://flouri.sh/2008/2/13/mysql-query_reviewer-plugin y controlar índices y optimizar queries y tal
+* Instalar plugin: http://internetducttape.com/2008/02/06/rails-guide-exception-notifier-plugin/ para que nos lleguen errores al email
+* Vigilar que la gente con perfil privado no aparezca en ningún listado.
+* Mirar que los emails que envía la aplicación de 'reseteo de password' no tenga el host hardcodeado.
+* Hacer tests de los emails de la aplicación: nuevo_registro, reset_pass, has_pagado, ...
+* Pasar a rails 2.1 :O :)
+* Quitar este warning que sale al ejecutar los tests: "/Users/fguillen/Documents/develop-ror/confror/confror/config/../app/views/edicion/autores/list.rhtml:10: warning: don't put space before argument parentheses"
+* Quitar este warning que sale al ejecutar los tests:
+"DEPRECATION WARNING: server_settings has been renamed smtp_settings, this warning will be removed with rails 2.0  See http://www.rubyonrails.org/deprecation for details. (called from /Users/fguillen/Documents/develop-ror/confror/confror/config/environment.rb:160)"
+
+
+Cuando este todo funcionando:
+------------------
+(No hacer estas cosas todavía porque sino no podremos chupar un dump de la BD de producción fácilmente)
+
+* Fusionar modelo Usuario y modelo Perfil que es un coñazo tenerlo así
+* Borrar modelo Autor y convertirlo a modelo Usuario.
+

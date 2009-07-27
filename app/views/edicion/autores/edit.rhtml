@@ -1,0 +1,11 @@
+<% title "Administración: Editar autor" %>
+
+<h1>Editar autor</h1>
+
+<% form_tag("/edicion/autores/update/#{@autor.id}", {:multipart => true}) do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= link_to 'Ver', :action => 'show', :id => @autor %> |
+<%= link_to 'Volver', :action => 'list' %>

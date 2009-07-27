@@ -1,0 +1,277 @@
+/*
+  	Eureka CSS Framework
+	http://github.com/marze/eureka
+*/
+
+.grid { background: url('../images/grid.png'); }
+
+body { background: #EEEDEA url('../images/bg.png') top repeat-x; }
+
+h1, h2, h3, h4, h5, h6 { color: #282A2B; }
+
+h2 a { text-decoration: none; }
+
+h5 {
+	text-transform: uppercase;
+	font-family: Verdana;
+	letter-spacing: 2px;
+	font-weight: bold;
+	padding-top: 1.65em;
+}
+
+#sponsors h5 { padding-top: 0em; }
+
+h5 span {
+	text-transform: lowercase;
+	letter-spacing: 0px;
+	font-weight: normal;
+	font-style: italic;
+}
+
+p.details {
+	font-style: italic;
+	color: #888;
+	font-size: 0.916667em;
+	line-height: 1.636364em;
+	margin-top: -0.25em;
+	text-indent: 0em;
+}
+
+span.details {
+	font-style: italic;
+	color: #888;
+	font-size: 0.916667em;
+}
+
+a { color: #CB3522; }
+a:hover { color: #2A5454; }
+a:visited { color: #9B2016; }
+
+p.details { text-indent: 1em; }
+
+table {
+	width:100%;
+	margin: 0 0 1.5em 0;
+}
+
+table img { display: inline-block; vertical-align: middle; margin-right: 3px; }
+
+td { padding: 5px 0 5px 5px; border-bottom: 1px solid #DDD; }
+
+.odd td, .even td  { border-left: 1px solid #DDD; }
+.odd, .even { background-color: #FFF; }
+
+.highlight { background-color: #FFF8CB; }
+
+.title td {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.15em;
+	padding: 1em 0 0.5em 0;
+}
+
+.index th {
+	color: #FFF;
+	padding-left: 5px; 
+	font-variant: small-caps;
+	background-color: #A3342B;
+	border-left: 1px solid #9B2016;
+	border-bottom: 1px solid #9B2016;
+}
+
+.bienvenida td, .coffeebreak td, .comida td {
+	padding: 0 0 0 5px;
+	color: #FFF;	
+	background-color: #476B6A;
+	border-left: 1px solid #2A5454;
+	border-bottom: 1px solid #2A5454;
+}
+
+.errorExplanation, #flash { padding: .8em; margin-bottom: 1em; }
+.errorExplanation ul  { margin-bottom: 0; padding: 0;}
+.errorExplanation     { background: #E7BEBB; color: #9B2016; margin-bottom: 1.5em; }
+#flash   { background: #CEDDC4; color: #213026; width: 250px; text-align: center; margin: 0 auto; margin-bottom: 1em;}
+
+.canvas { background: url('../images/logo.png') 0 0 no-repeat; }
+
+#header {
+	color: #000;
+	margin-bottom: 3em;
+}
+
+#menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	float: right;
+}
+
+#menu li {
+	display: inline;
+	font-size: 1.333333em;
+	line-height: 1.125em;
+	margin-right: 0.5em;
+}
+
+#menu a               { padding: 5px 0px 5px 10px; text-decoration: none; color: #FFF; }
+#menu a span          { padding: 5px 10px 5px 0px; }
+#menu a:hover         { background: url('../images/button.png') bottom left; color: #FFF; }
+#menu a:hover span    { background: url('../images/button.png') bottom right; }
+#menu .current a      { background: url('../images/button.png') top left; color: #111; }
+#menu .current a span { background: url('../images/button.png') top right; }
+
+#twitter li {
+	list-style-type: none;
+	margin-bottom: 1em;
+}
+
+#twitter ul {
+	margin: 0;
+	padding: 0;
+}
+
+.item { margin-bottom: 2em; }
+.item a img { float: left; width: auto; margin: 6px 6px 0 0; }
+
+.avatar { float: right; margin: 0 0 0.5em 0.5em; }
+.author-avatar { float: left; margin: 0 1em 0.25em 0; }
+
+.pager { 
+	margin: 1.5em 0 0 0;
+	font-size: 1.083333em;
+	line-height: 1.384615em;
+}
+
+.pager a {
+	color: #333;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.pager a:hover { color: #2A5454; }
+
+.pager .previous { float: left; }
+.pager .next     { float: right; }
+
+#comments h3 {
+	padding-bottom: 0.5em;
+}
+
+.comment {
+	border-top: 1px solid #CCC;
+	margin-top: 1.5em;
+	padding: 1em 1.5em 0.5em 1.5em;
+	background: #E4E1D7;
+}
+
+.comment h6 {
+	margin-top: 0;
+}
+
+.authors {
+	margin-top: -0.75em;
+	font-size: 0.916667em;
+	line-height: 1.636364em;
+	margin-bottom: 1.25em;
+}
+
+.date { 
+	font-style: italic;
+	font-weight: normal;
+	font-size: 0.916667em;
+	line-height: 1.636364em;
+}
+
+.rate { float: right; }
+
+#asistentes {
+	margin-bottom: 2em;
+}
+ 
+#comentarios {
+	margin-top: -0.5em;
+}
+
+#register {
+	background-color: #E5E2D7;
+	margin-bottom: 3em;
+	padding: 0 1.5em 1.5em 1.5em;
+	border: 1px dashed #CCC;
+	text-align: center;
+}
+
+#register img {
+	margin: 0;
+	padding: 0;
+}
+
+#register p {
+	margin-bottom: 0;
+}
+
+#register ol {
+	margin: 0;
+	padding: 0;
+}
+
+#register li {
+	list-style-type: none;
+	margin: 0 0 0.5em 0;
+	padding: 0;
+}
+#register label {
+	display: inline-block;
+	width: 6em;
+	padding-right: 0.25em;
+	text-align: right;
+	font-weight: bold;
+}
+
+#register input {
+	border: 1px solid #B7B5AC;
+	font-size: 1em;
+	padding: 0.25em;
+	width: 50%;
+}
+
+#register input[type='image'] {
+	border: none;
+	width: auto;
+}
+
+#register img {
+	margin: 0;
+	padding: 0;
+}
+
+#register ol {
+	margin: 0;
+	padding: 0;
+}
+
+#register li {
+	list-style-type: none;
+	margin: 0 0 0.5em 0;
+	padding: 0;
+}
+
+#credits {
+	border-left: 1px solid #E0DFDA;
+	padding-left: 2em;
+	text-align: center;
+}
+
+#credits h5 { text-align: left; }
+
+#credits img {
+	float: none;
+	margin-bottom: 0em;
+}
+
+#footer {
+	margin: 1.5em 0 1.5em 0;
+	padding-top: 3em;
+	text-align: center;
+}

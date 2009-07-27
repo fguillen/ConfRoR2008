@@ -1,0 +1,15 @@
+%div{:class => "item"}
+  %div{:class => "item_details"}
+    %h3 Roles
+  %div{:class => "item_content"}
+  - Role.find(:all).each do |role|
+  - if @usuario.roles.include?(role)
+  %p{:class => "tick"}
+    = role.title
+    = link_to 'eliminar', url_for(:controller => 'roles', :action => 'destroy', :id => role.id), :method => :delete
+  - else
+  %p{:class => "cross"}
+    = role.title
+    = link_to 'añadir', url_for(:controller => 'roles', :action => 'create', :id => role.id), :method => :post
+  - end
+  - end

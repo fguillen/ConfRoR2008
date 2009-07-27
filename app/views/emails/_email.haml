@@ -1,0 +1,4 @@
+%tr{:class => cycle('filapar','filaimpar')}
+  %td= link_to "[CONFERENCIARAILS] #{h email.subject}", email_path(email)
+  %td= format email.sent_on
+  %td= h email.body

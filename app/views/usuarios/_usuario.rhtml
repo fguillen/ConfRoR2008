@@ -1,0 +1,45 @@
+<% unless usuario.activated? %>
+  <tr class="usuario_noactivado">
+<% else %> 
+  <% if usuario.todo_pagado? %>
+    <tr class="usuario_pagado">
+  <% else %>
+    <tr class="usuario_nopagado">
+  <% end %>
+<% end %>
+  <td class="usuario">
+      <div class="hidden"><%= link_to "#{h usuario.nombre_completo}", perfil_path(usuario) %>          
+          <%unless usuario.perfil.empresa.blank? -%>
+              <BR/>empresa: <%=usuario.perfil.empresa rescue nil%>
+          <%end-%>
+          <%unless usuario.perfil.facturacion.blank? -%>
+              <BR/>facturación: <%=usuario.perfil.facturacion rescue nil%>
+          <%end-%>    
+      </div>
+  </td>
+  <td title="borrar" class="img_command"><%= link_to image_tag("bin_closed.png"), usuario_path(usuario), :confirm => "¿Seguro?", :method => :delete unless usuario.roles.include_admin? %></td>
+  <td class="importe"><%= usuario.tarifa.importe %> €</td>
+  <% if usuario.pagado? %>
+    <td title="marcar como no pagado" class="img_command">
+    <%= link_to image_tag("tick.png"), nopagado_usuario_path(usuario), :method => :post if usuario.activated? %>
+  <% else %>
+    <td title="marcar como pagado" class="img_command">
+    <%= link_to image_tag("cross.png"), pagado_usuario_path(usuario), :method => :post if usuario.activated? %>	
+  <% end %>
+  </td>
+
+  <% if usuario.perfil.cena %>
+    <td class="importe">40 €</td>
+    <% if usuario.pagado_cena? %>
+      <td title="marcar como no pagado" class="img_command">
+      <%= link_to image_tag("tick.png"), nopagadocena_usuario_path(usuario), :method => :post if usuario.activated? %>
+    <% else %>
+      <td title="marcar como pagado" class="img_command">
+      <%= link_to image_tag("cross.png"), pagadocena_usuario_path(usuario), :method => :post if usuario.activated? %>	
+    <% end %>
+	</td>
+  <% else %>
+    <td class="importe"></td>
+	<td class="img_command"></td>
+  <% end %>
+</tr>

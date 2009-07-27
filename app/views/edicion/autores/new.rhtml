@@ -1,0 +1,10 @@
+<% title "Administración: Nuevo autor" %>
+
+<h1>Nuevo autor</h1>
+
+<% form_tag('/edicion/autores/create', {:multipart => true}) do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Crear" %>
+<% end %>
+
+<%= link_to 'Atrás', :action => 'list' %>

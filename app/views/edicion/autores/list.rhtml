@@ -1,0 +1,35 @@
+<% title "Administración: Listado autores" %>
+
+<h1>Listado de autores</h1>
+<table cellpadding="5" cellspacing="0">
+    <% for @autor in @autores %>
+    <tr class="<%= cycle('par', 'impar') %>">
+        <td valign="top">
+        <%= image_tag(url_for_file_column(:autor, :avatar), {:width => '50', :align => 'left'}) if !@autor.avatar.nil? %>    
+        </td>
+        <td valign="top">
+            <strong><%= link_to @autor.nombre_y_apellidos, :action => 'show', :id => @autor %></strong><br />          
+            <%= @autor.resumen.size > 0 ? simple_format (@autor.resumen) : "<font color='red'>FALTA PEDIR RESUMEN</font>" %><br />
+            <%= @autor.email.size > 0 ? "<a href='#{@autor.email}'>#{@autor.email}</a>" : "<font color='red'>FALTA PEDIR EMAIL</font>" %><br />
+            <%= @autor.web.size > 0 ? "<a href='#{@autor.web}'>#{truncate(@autor.web, 50)}</a>" : "<font color='red'>FALTA PEDIR WEB</font>" %><br />
+            <hr />
+            <%= @autor.charlas.size %> charlas:<br />
+            <% for charla in @autor.charlas %>
+            &gt;&gt; <%= link_to charla.titulo, {:controller => 'edicion/charlas', :action => 'ver', :id => charla.id}%>
+            <%= charla.aprobada ? "(aprobada)" : "(pendiente)"%><br />
+            <% end %>
+        </td>
+        <td valign="top">
+        [<%= link_to 'Editar', :action => 'edit', :id => @autor %>] 
+        [<%= link_to 'Borrar', { :action => 'destroy', :id => @autor }, :confirm => "¿Seguro que deseas borrar a #{@autor.nombre_y_apellidos}?", :method => :post %>]<br />
+        </td>
+     </tr>
+<% end %>
+</table>
+
+<%= link_to 'Página anterior', { :page => @autor_pages.current.previous } if @autor_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @autor_pages.current.next } if @autor_pages.current.next %> 
+
+<br />
+
+[<%= link_to 'Nuevo autor', :action => 'new' %>]

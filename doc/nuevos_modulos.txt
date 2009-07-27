@@ -1,0 +1,38 @@
+Nuevas funcionalidades:
+-------------------------
+Las nuevas funcionalidades que se deseaban eran:
+* comentario sobre las ponencias
+* votos en las ponencias
+* marcar a que ponencia pensabas ir.
+
+
+Modelos
+--------------------------
+* Asistencia
+* Comentario
+* Voto
+
+
+
+Controladores
+--------------------------
+Pues eso :)
+
+
+
+Las vistas
+--------------------------
+Por ahora la inserción de las nuevas funcionalidades en las vistas está un poco chapucera, esperando a las nuevas maquetas.
+
+
+
+Los tests
+-------------------------
+Se ha intentado que los tests se metan dentro de los tests de estos módulo, no en los tests pertenecientes a modelos y controladores de los otros módulos.
+
+Me explico:
+Los tests que comprueban el método Charla::asistentes_publicos los he puesto en /test/unit/asistencia_test.rb.
+
+Simplemente por dejar lo nuevo con lo nuevo.. pero esto puede que no esté bien.
+
+Los estoy haciendo con shoulda pero usar lo que queráis.

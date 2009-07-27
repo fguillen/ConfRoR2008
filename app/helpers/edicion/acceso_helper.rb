@@ -1,0 +1,2 @@
+module Edicion::AccesoHelper
+end

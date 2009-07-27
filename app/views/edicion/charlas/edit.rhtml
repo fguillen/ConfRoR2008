@@ -1,0 +1,11 @@
+<% title "Administración: Editar charla" %>
+
+<h1>Editar charla</h1>
+
+<% form_tag :action => 'update', :id => @charla do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Editar' %>
+<% end %>
+
+<%= link_to 'Ver', :action => 'show', :id => @charla %> |
+<%= link_to 'Volver', :action => 'list' %>

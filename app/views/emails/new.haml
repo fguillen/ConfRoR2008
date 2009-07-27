@@ -1,0 +1,28 @@
+- title "Administración: Nuevo email"
+
+
+%div{:class => "item"}
+  %div{:class => "item_details"}
+    %h3
+      Enviar correo
+  %div{:class => "item_content"}
+    = error_messages_for :email
+    - form_for(:email, :url => emails_path) do |f|
+    %p
+      %label{:for => "subject"} Asunto *
+      %br
+      = f.text_field "subject", :size => 70
+    %p
+      %label{:for => "recipients"} Destinatarios *
+      %br
+      = f.select "recipients", ["todos", "activados", "no activados", "no pagados"]
+    %p
+      %label{:for => "body"} Mensaje *
+      %br
+      = f.text_area "body", :rows => 20, :cols => 70
+    %p
+      = submit_tag "Enviar"
+      o
+      = link_to "cancelar", emails_path
+      la operación
+    - end

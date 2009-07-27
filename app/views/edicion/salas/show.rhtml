@@ -1,0 +1,11 @@
+<% title "Administración: Ficha sala" %>
+
+
+<% for column in Sala.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @sala.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @sala %> |
+<%= link_to 'Back', :action => 'list' %>

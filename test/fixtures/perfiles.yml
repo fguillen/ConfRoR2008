@@ -1,0 +1,37 @@
+# t.column nombre:
+# t.column apellido1:
+# t.column apellido2:
+# t.column telefono:
+# t.column empresa:
+# t.column url_empresa:
+# t.column titulo_blog:
+# t.column url_blog:
+# t.column cena:
+# t.column publico:
+# t.column usuario_id:
+one:
+  id: 1
+  nombre: nombre1
+  apellido1: ape1
+  apellido2: ape2
+  telefono: 234234234
+  empresa: empresa
+  url_empresa: http://empresa
+  titulo_blog: blog
+  url_blog: http://blog
+  cena: 1
+  publico: <%= true %>
+  usuario_id: 1
+two:
+  id: 2
+  nombre: nombre2
+  apellido1: ape1
+  apellido2: ape2
+  telefono: 234234234
+  empresa: empresa2
+  url_empresa: http://empresa2
+  titulo_blog: blog2
+  url_blog: http://blog2
+  cena: 1
+  publico: <%= false %>
+  usuario_id: 2

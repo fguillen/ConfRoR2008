@@ -1,0 +1,11 @@
+<% title "Administración: Nueva charla" %>
+
+
+<h1>Nueva charla</h1>
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Crear" %>
+<% end %>
+
+<%= link_to 'Volver', :action => 'list' %>

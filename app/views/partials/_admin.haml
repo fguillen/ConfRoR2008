@@ -1,0 +1,28 @@
+- if logged_in?
+  = render :partial => 'sesion/show'
+- else
+= render :partial => 'sesion/new'
+- end
+
+- if logged_in?
+%div{:id => "admin_box"}
+  - restrict_to 'admin' do
+    %h3 ¡Eres <b>admin</b>!
+    Usuarios:
+    %ul
+      %li= link_to 'activados', :controller => 'usuarios', :action => 'activados'
+      %li= link_to 'no activados', :controller => 'usuarios', :action => 'noactivados'
+      %li= link_to 'no pagados', :controller => 'usuarios', :action => 'nopagados'
+      %li= link_to 'cena (y activados)', :controller => 'usuarios', :action => 'cena'
+      %li= link_to 'todos', usuarios_path
+    Por roles:
+    %ul
+    - Role.find(:all).each do |role|
+      %li= link_to role.title, url_for(:controller => 'usuarios', :action => 'index', :role_title => role.title)
+    - end
+    Correos:
+    %ul
+      %li= link_to 'enviar', new_email_path
+      %li= link_to 'histórico', emails_path
+  - end
+- end

@@ -1,0 +1,7 @@
+<% title "Listado de ponencias" %>
+
+<div id="items">
+	<% for charla in @charlas %>
+		<%= render :partial => 'charla', :locals => { :charla => charla } %>
+	<% end %>
+</div>

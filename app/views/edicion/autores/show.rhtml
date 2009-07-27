@@ -1,0 +1,20 @@
+<% title "Administración: Ficha autor" %>
+
+
+<%= image_tag(url_for_file_column(:autor, :avatar), {:width => '100', :align => 'right'}) if !@autor.avatar.nil? %>
+<h1><%= @autor.nombre_y_apellidos %></h1>
+<p>
+    <em><%= simple_format(auto_link(h(@autor.resumen))) %></em><br />
+    <strong>e-mail:</strong> <a href="mailto:<%= h @autor.email %>"><%= h(@autor.email) %></a><br />
+    <strong>web:</strong> <a href="<%= h @autor.web %>"><%= h(@autor.web) %></a><br />    
+    <strong>notas:</strong> <%= h(@autor.notas) %></a><br />
+</p>
+<h2><%= @autor.nombre %> participa en las siguientes charlas:</h2>
+<ul>
+<% @autor.charlas.each do |c| %>
+    <li><%= link_to c.titulo, {:controller => 'edicion/charlas', :action => 'show', :id => c.id} %></li>
+<% end %>
+</ul>  
+
+<%= link_to 'Editar este autor', :action => 'edit', :id => @autor %> |
+<%= link_to 'Volver al listado de autores', :action => 'list' %>

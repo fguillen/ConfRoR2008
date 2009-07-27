@@ -1,0 +1,16 @@
+<div id="menu">
+	<ul>
+		<%= menu "Blog", "http://www.conferenciarails.org" %>
+		<%= menu "Calendario", :controller => '/charlas', :action => 'calendario' %>
+		<%= menu "Ponencias", :controller => '/charlas', :action => 'lista' %>
+		<%= menu "Autores", :controller => '/autores', :action => 'lista' %>
+		<%= menu "Asistentes", asistentes_path %>
+		<% if logged_in? %>
+			<%= menu "Perfil", perfil_path(current_usuario) %>
+		<% end %>
+		<% if !logged_in? %>
+			<%= menu "Registro", signup_path %>
+		<% end %>
+		<%= menu "Instrucciones", instrucciones_path %>
+	</ul>
+</div>

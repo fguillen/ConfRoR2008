@@ -1,0 +1,86 @@
+<% title "Calendario de ponencias" %>
+
+<div id="items">
+    <!-- fila para cada hora -->
+	<table border="0" width="100%">
+	<% dia_antiguo = 0 %>
+    <% @fechas.each do |f| %>
+		<% if dia_antiguo != f.day then %>
+			<tr class="title">
+				<td colspan="3">Día <%= f.strftime('%d de %B de %Y') %></td>
+			</tr>
+	    	<!-- cabecera de salas -->
+	    	<tr class="index">
+	        	<th>Hora</td>
+	    		<% @salas.each do |s| %>
+	        		<th width="45%">Sala <%= s.nombre %></th>
+	    		<% end %>
+	    	</tr>		
+			<% dia_antiguo = f.day %>
+		<% end %>
+	
+		<% if  (f.strftime("%H:%M") == "09:30") or (f.strftime("%H:%M") == "10:00") then %>
+			<tr class="bienvenida">
+				<td>09:00</td>
+				<td colspan="<%= @salas.size %>"><center><em>Acreditaciones / Bienvenida</em></center></td>
+			</tr>		
+		<% end %>			
+	
+		<% if (f.strftime("%H:%M") == "12:45") then %>
+			<tr class="coffeebreak">
+				<td>12:15</td>
+				<td colspan="<%= @salas.size %>"><center><em>Coffee Break de 30 minutos</em></center></td>
+			</tr>		
+		<% end %>	
+	
+		<% if (f.strftime("%H:%M") == "16:15") then %>
+			<tr class="comida">
+				<td>15:00</td>
+				<td colspan="<%= @salas.size %>"><center><em>Comida</em></center></td>
+			</tr>		
+		<% end %>			
+	
+		<% if (f.strftime("%H:%M") == "18:45") then %>
+			<tr class="coffeebreak">
+				<td>18:15</td>
+				<td colspan="<%= @salas.size %>"><center><em>Coffee Break de 30 minutos</em></center></td>
+			</tr>		
+		<% end %>				
+	
+		<tr class="<%= cycle('odd', 'even') %>">
+			<td>
+				<%= f.strftime('%H:%M') %>
+			</td>
+			<% @salas.each do |s| %>
+				<% Charla.por_sala_y_fecha(s, f).each do |c| %>
+					<% c.confirmada ? clase = 'confirmada' : clase = 'noconfirmada' %>
+		    
+					<% if logged_in? %>
+            <% if c.necesita_td_izquierda %>
+              <td>&nbsp;</td>
+            <% end %>
+	  					<% if Asistencia.asiste_este_usuario_a_esta_charla?( current_usuario.id, c.id ) %>
+						<td class="highlight">
+	  						<%= link_to(image_tag('voy.png'), :controller => 'asistencias', :action => 'no_voy_a_ir', :charla_id => c.id, :from => 'calendario') %>
+							<a href="/charlas/ver/<%= c.id %>" class="<%= clase %>"><%= h(c.titulo) %></a>
+						</td>
+	  					<% else %>
+						<td>
+	  						<%= link_to(image_tag('no-voy.png'), :controller => 'asistencias', :action => 'voy_a_ir', :charla_id => c.id, :from => 'calendario') %>
+							<a href="/charlas/ver/<%= c.id %>" class="<%= clase %>"><%= h(c.titulo) %></a>
+						</td>
+	  					<% end %>
+					<% else %>
+            <% if c.necesita_td_izquierda %>
+              <td>&nbsp;</td>
+            <% end %>
+						<td>
+							<a href="/charlas/ver/<%= c.id %>" class="<%= clase %>"><%= h(c.titulo) %></a>
+						</td>
+					<% end %>
+				<% end %>    
+			<% end %>
+		</tr>
+	<% end %>
+	</table>
+</div>

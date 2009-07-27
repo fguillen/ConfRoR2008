@@ -1,0 +1,66 @@
+!!! XML
+!!! Strict
+
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "ES-es"}
+
+  %head
+    %title Conferencia Rails Hispana &bull; La conferencia sobre Rails en castellano
+
+    / Some meta information
+    %meta{:name => "robots", :content => "index,follow"}
+    %meta{:name => "mssmarttagspreventparsing", :content => "true"}
+
+    %meta{"http-equiv" => "content-type", :content => "text/html", :charset => "utf-8"}
+    %meta{:name => "author", :content => "el equipo de la Conferencia Rails Hispana"}
+    %meta{:name => "description", :content => "Reunión anual de los desarrolladores y empresas hispanas que trabajan con Ruby y Rails cada día. El objetivo de la conferencia es difundir el Open Source y poner en contacto a profesionales del sector."}
+    %meta{:name => "dc.title", :content => "Conferencia Rails Hispana"}
+
+    %link{:rel => "start", :href => "http://www.conferenciarails.org", :title => "Conferencia Rails Hispana"}
+    %link{:rel => "alternate", :href => "http://www.conferenciarails.org/rss", :title => "Conferencia Rails 2007 Feed", :type => "application/rss+xml"}
+
+    / Blueprint framework files
+    = stylesheet_link_tag 'screen', :title => 'Screen', :media => 'screen, projection'
+    = stylesheet_link_tag 'print', :title => 'Print', :media => 'print'
+
+    / Load all the javascripts
+    = javascript_include_tag 'prototype'
+    = javascript_include_tag 'lightbox'
+
+    /[if IE]
+      = javascript_include_tag 'minmax'
+      = stylesheet_link_tag 'lib/ie.css', :title => 'IE', :media => 'screen, projection'
+
+  %body{:id => "conferenciarails.org"}
+
+    %div{:id => "site", :class => "container"}
+
+      %div{:id => "page", :class => "column span-10"}
+        %div{:id => "menu"}
+          %ul
+            %li{:class => "button-4"}= link_to 'Ir al blog', 'http://www.conferenciarails.org'
+            %li{:class => "button-4"}= link_to 'Ponencias', :controller => 'charlas', :action => 'lista'
+            %li{:class => "button-4"}= link_to 'Calendario' , :controller => 'charlas', :action => 'calendario'
+            %li{:class => "button-2"}= link_to 'Autores', :controller => 'autores', :action => 'lista'
+            %li{:class => "button-4"}= link_to 'Asistentes', asistentes_path
+            %li{:class => "button-5"}= link_to 'Instrucciones', instrucciones_path
+            - if logged_in?
+              %li{:class => "button-1"}= link_to 'Perfil', perfil_path(current_usuario)
+              - restrict_to 'admin' do
+              %li{:class => "button-3"}= link_to 'Usuarios', usuarios_path
+              %li{:class => "button-2"}= link_to 'Emails', emails_path
+            - end
+
+        %div{:id => "bd"}          
+
+          %div{:id => "content"}
+            = '<div id="flash">'+flash[:notice]+'</div>' if flash[:notice]
+            = yield
+
+      %div{:id => "sidebar", :class => "column span-3 last"}= render :partial => 'includes/sidebar'
+
+    %div{:id => "ft"}
+
+      = render :partial => 'includes/cms'
+
+    = render :partial => 'includes/twitter'
+    = render :partial => 'includes/stats'

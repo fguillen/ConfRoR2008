@@ -1,0 +1,35 @@
+<% title "Administración: Listado de ponencias por orden de llegada" %>
+
+<h1>Listado de ponencias por orden de llegada</h1>
+<hr />
+<% num = 0 %>
+<% for charla in @charlas %>
+<% num += 1 %>
+<h2>#<%= num %> - <%= h charla.titulo %></h2>
+<h3>Resumen:</h3>
+<%= simple_format(auto_link(h(charla.resumen))) %>
+
+<h3>Charla a cargo de:</h3>
+<ul>
+<% charla.autores.each do |autor|%>
+    <li><%= autor.nombre_y_apellidos %></li>
+<% end %>
+</ul>
+<hr />
+<% end %>
+
+<h1>Listado de ponentes</h1>
+<hr>
+<% for @autor in @autores %>
+<%= image_tag(url_for_file_column(:autor, :avatar), {:width => '100', :align => 'right'}) if !@autor.avatar.nil? %>
+<h2><%= @autor.nombre_y_apellidos %></h2>
+<%= @autor.resumen.size > 0 ? simple_format (@autor.resumen) : "<font color='red'>FALTA PEDIR RESUMEN</font>" %><br />
+<%= @autor.email.size > 0 ? "<a href='#{@autor.email}'>#{@autor.email}</a>" : "<font color='red'>FALTA PEDIR EMAIL</font>" %><br />
+<%= @autor.web.size > 0 ? "<a href='#{@autor.web}'>#{truncate(@autor.web, 50)}</a>" : "<font color='red'>FALTA PEDIR WEB</font>" %><br />
+<%= @autor.charlas.size %> charlas:<br />
+<% for charla in @autor.charlas %>
+&gt;&gt; <%= charla.titulo %>
+<%= charla.aprobada ? "(aprobada)" : "(pendiente)"%><br />
+<% end %>
+<hr />
+<% end %>

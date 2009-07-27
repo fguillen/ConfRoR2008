@@ -1,0 +1,40 @@
+<% title "#{@charla.titulo}" %>
+
+<%= render :partial => 'charla', :locals => {:charla => @charla} %>
+
+<div id="comentarios">
+	<% @charla.comentarios_publicados.each do |comentario| %>
+	<div class="comment">		
+		<%=
+		  gravatar(
+		    comentario.usuario.email, 
+		    :size => 32, 
+		    :default => "#{base_url}/images/avatar.png",
+		    :class => 'avatar',
+		    :alt => "avatar de #{comentario.usuario.nombre_completo}"
+		  )
+		%>
+		<h6>
+			<%= link_to comentario.usuario.nombre_completo, asistentes_path(:anchor => comentario.usuario.id) %>
+			<span class="date"><%= comentario.created_at.strftime("%d/%m/%Y a las %H:%Mh") %></span>
+		</h6>
+		<p><%= comentario.texto %></p>
+	</div>
+	<% end %>
+</div>
+
+<% if logged_in? %>
+	<% form_for( :comentario, :url => { :controller => 'comentarios', :action => 'comentar' } ) do |f| %>
+		<div class="comment">
+			<label for="comentario_texto">Añade tu comentario</label>
+			<%= f.hidden_field :charla_id, :value => @charla.id %>
+			<%= f.text_area :texto %>
+			<br />
+			<%= image_submit_tag "send.png" %>
+		</div>  
+	<% end %>
+<% else %>
+	<div class="item">
+		<p>Autentifícate para poder comentar.</p>
+	</div>
+<% end %>

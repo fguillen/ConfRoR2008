@@ -1,0 +1,42 @@
+<% title "Registro" %>
+
+<div id="items">
+	<h1>¡Regístrate!</h1>
+	<p><em>Los campos señalados con un * son obligatorios.</em></p>
+
+	<div class="item">
+		<%= error_messages_for :usuario, :perfil %>
+		<% form_for :usuario, :url => usuarios_path do |f| %>
+		<fieldset>
+			<p>     
+				<label for="login">Usuario *</label><br />
+				<%= f.text_field :login %>
+			</p>
+			<p>     
+				<label for="email">Email *</label><br />
+				<%= f.text_field :email %>
+			</p>
+			<p>     
+				<label for="password">Contraseña *</label><br />
+				<%= f.password_field :password %>
+			</p>
+			<p>     
+				<label for="password_confirmation">Confirma la contraseña *</label><br />
+				<%= f.password_field :password_confirmation %>
+			</p>                    
+				
+			<h3>Perfil</h3>
+			<%= render :partial => 'perfil/form' %>
+			<p>
+				<%= check_box("perfil", "publico", :checked => true) %>
+				<label for="publico">¿Perfil público? (No incluye el correo)</label>
+			</p>
+			<p>
+				<%= image_submit_tag 'send.png' %>
+			</p>
+		</fieldset>
+		<% end %>
+	</div>
+</div>
+
+

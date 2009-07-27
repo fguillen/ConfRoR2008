@@ -1,0 +1,16 @@
+- title "Administración: Emails"
+
+%div{:class => "item"}
+  %div{:class => "item_details"}
+    %h3
+      Correos enviados:
+      = @emails.length
+      en total
+  %div{:class => "item_content"}
+    %p= link_to "Enviar un nuevo email", new_email_path
+    %table{:widht => "100%"}
+      %tr{:class => "index"}
+        %th Email
+        %th{:class => "center"} Fecha
+        %th{:class => "center"} Texto
+      = render :partial => 'email', :collection => @emails

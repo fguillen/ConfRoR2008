@@ -1,0 +1,80 @@
+<% title "Ficha perfil" %>
+
+<div id="items"> 
+	<div class="item">
+		<h2>Datos básicos</h2>
+		<p>
+			<label>Login</label>
+			<%= @usuario.login %>
+		</p>
+		<p>
+			<label>Email</label>
+			<%= @usuario.email %>
+		</p>
+		<% if @usuario.activated_at.nil? %>
+			<p>Sin activar</p>
+		<% else %>
+			<p>Activado</p>
+		<% end %>
+	</div>
+
+	<%= render :partial => 'perfil/pago' %>
+
+	<div class="item">
+		<h2>Perfil</h2>
+
+		<p>
+			<label>Nombre</label>
+			<%= @perfil.nombre %>
+		</p>
+		<p>
+			<label>Apellidos</label>
+			<%= @perfil.apellido1 %>
+			<%= @perfil.apellido2 %>
+		</p>
+		<p>
+			<label>Teléfono</label>
+			<%= @perfil.telefono %>
+		</p>
+		<p>
+			<label>Datos de facturación</label>
+			<%= @perfil.facturacion %>
+		</p>
+		<p>
+			<label>Título del blog</label>
+			<%= @perfil.titulo_blog %>
+		</p>
+		<p>
+			<label>URL del blog</label>
+			<%= @perfil.url_blog %>
+		</p>
+		<p>
+			<label>Empresa</label>
+			<%= @perfil.empresa %>
+		</p>
+		<p>
+			<label>URL de la empresa</label>
+			<%= @perfil.url_empresa %>
+		</p>
+		
+		<% if @perfil.publico %>
+			<p>Perfil público</p>
+		<% else %>
+			<p>Perfil privado</p>
+		<% end %>
+		
+		<% if @perfil.cena %>
+			<p>Asiste a la cena</p>
+		<% else %>
+			<p>No asiste a la cena</p>
+		<% end %>
+		
+		<br />
+		
+		<p><strong><%= link_to 'Editar tu perfil', edit_perfil_path %></strong></p>
+	</div>
+	
+	<% restrict_to 'admin' do %>
+		<%= render :partial =>'roles/roles' %>
+	<% end %>
+</div>

@@ -1,0 +1,69 @@
+Modelo de datos
+-----------------------
+Se han respetado las tablas de las dos aplicaciones.
+
+Tablas originales de la aplicación de registro:
+---
+* emails
+* perfiles
+* roles
+* roles_usuarios
+* tarifas
+* usuarios
+
+Tablas originales de la aplicación de ponencias:
+---
+* charlas
+* autores
+* autores_charlas
+* salas
+
+Tablas nuevas de los nuevos módulos
+---
+* asistencias
+* comentarios
+* votos
+
+Tenéis dibujos de 2 modelos en esta misma carpeta:
+* schema_*_app.jpg
+
+
+
+Las migraciones
+-----------------
+Las he ordenado así:
+* 00\d aplicación ponencias
+* 10\d aplicación registro
+* 20\d aplicación nuevos módulos
+
+
+
+Los controladores
+----------------
+Los controladores de las dos aplicaciones se han agregado al mismo /app/controllers. El único pequeño conflicto entre los controladores de las dos aplicaciones ha sido que la aplicación de registro separa las acciones de administración de las de front poniéndolas en controladores que cuelgan de /app/controllers/edicion
+
+
+
+El sistema de loggin
+-----------------
+He usado el sistema de validación de la aplicación de registro para el merge, he sustituido todas las validaciones de login en los controladores de la aplicación de ponencias.
+
+
+
+Los tests
+------------------
+Al igual que los controladores se ha hecho un merge sin muchos problemas.
+
+Se han cambiado cosas en los tests de la aplicación ponencias para que usen el sistema de validación actual.
+
+
+
+Las vistas
+------------------
+Algunas vistas están en haml y otras en rhtml :O .. a ver con las nuevas maquetas si esto cambia.
+
+
+
+El menu
+------------------
+Al merger los 2 menús y usar el mismo layout para front que para back el menú ha quedado un poco redundante.. espero que esto se arregle con las nuevas maquetas.

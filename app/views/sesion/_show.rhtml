@@ -1,0 +1,14 @@
+<h6>Conectado como <strong><%= current_usuario.login %></h6>
+
+<p><%= link_to 'Editar tu perfil', edit_perfil_path(current_usuario) %></p>
+<p><%= link_to "Cerrar la sesión", logout_url %></p>
+
+<% restrict_to 'admin' do %>
+	<h6>Admin</h6>
+	
+	<p><%= link_to 'Usuarios', usuarios_path %></p>
+	<p><%= link_to 'Emails', emails_path %></p>
+	<p><%= link_to 'Autores', :controller => 'edicion/autores' %></p>
+	<p><%= link_to 'Charlas', :controller => 'edicion/charlas' %></p>
+	<p><%= link_to 'Salas', :controller => 'edicion/salas' %></p>
+<% end %>

@@ -1,0 +1,20 @@
+- title "Administración: Editar tarifa" %>
+
+%div{:class => "item"}
+  %div{:class => "item_details"}
+    %h3
+      Editar tarifa de
+      = @usuario.nombre_completo
+  %div{:class => "item_content"}
+    - form_tag 'editar_tarifa' do
+    %p
+      %span Tarifa actual:
+      = @usuario.tarifa.importe
+    %p 
+      %span Tarifa nueva:
+      = select("usuario", "tarifa_id", Tarifa.find(:all).collect {|p| [ p.importe, p.id ] })
+      
+    %p
+      = hidden_field("usuario", "id")
+      = submit_tag 'Cambiar'
+    - end

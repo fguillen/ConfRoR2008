@@ -1,0 +1,4 @@
+Para poblar la BD hacer:
+$ rake db:migrate
+$ rake confror:delete_catalog_tables RAILS_ENV=production
+$ mysql -uroot confror < db/dump/confror_data.dump.sql

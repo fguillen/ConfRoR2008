@@ -1,0 +1,73 @@
+<% title "Administración: Listado charlas" %>
+
+<h1>Listado de charlas</h1>
+
+<table cellpadding="5" cellspacing="0">
+<% for charla in @charlas %>
+  <tr class="<%= cycle('par', 'impar') %>">
+    <td valign="top">
+    <% if charla.aprobada %>
+        <%= link_to (image_tag 'flag_green.png', :border => 0, :title => 'La charla está aprobada, pulsa para rechazarla'), {:action => :aprobacion, :id => charla.id} %>
+    <% else %>
+        <%= link_to (image_tag 'flag_red.png', :border => 0, :title => 'La charla está rechazada, pulsa para aprobarla'), {:action => :aprobacion, :id => charla.id} %>    
+    <% end %>
+    </td>
+    <td valign="top">
+    <% if charla.confirmada %>
+        <%= link_to (image_tag 'user_go.png', :border => 0, :title => 'La charla está confirmada, pulsa para cancelarla'), {:action => :confirmacion, :id => charla.id} %>
+    <% else %>
+        <%= link_to (image_tag 'user_red.png', :border => 0, :title => 'La charla no está confirmada, pulsa para confirmarla'), {:action => :confirmacion, :id => charla.id} %>    
+    <% end %>
+    </td>	
+    <td valign="top">
+        <strong><%= link_to charla.titulo, {:action => 'show', :id => charla} %></strong><br />
+        <blockquote>
+        <% for autor in charla.autores %>
+        <%= autor.email %><br />
+        <% end %>
+        </blockquote>
+    </td>
+    <td valign="top">
+        [<%= link_to 'Editar', :action => 'edit', :id => charla %>] 
+        [<%= link_to 'Borrar', { :action => 'destroy', :id => charla }, :confirm => 'Are you sure?', :method => :post %>]
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Emails de ponentes con charlas aprobadas:</h2>
+<p>
+<% for email in @email_aprobados %>
+    <%= email %>, 
+<% end %>
+</p>
+
+<h2>Emails de ponentes con charlas aprobadas y confirmadas:</h2>
+<p>
+<% for email in @email_aprobados_confirmados %>
+    <%= email %>, 
+<% end %>
+</p>
+
+<h2>Emails de ponentes con charlas aprobadas y no confirmadas:</h2>
+<p>
+<% for email in @email_aprobados_no_confirmados %>
+    <%= email %>, 
+<% end %>
+</p>
+
+<h2>Emails de ponentes con charlas rechazadas:</h2>
+<p>
+<% for email in @email_rechazados %>
+    <%= email %>, 
+<% end %>
+</p>
+
+
+<%= link_to 'Página anterior', { :page => @charla_pages.current.previous } if @charla_pages.current.previous %>
+<%= link_to 'Página siguiente', { :page => @charla_pages.current.next } if @charla_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Nueva charla', :action => 'new' %>
+<%= link_to 'Exportar charlas', :action => 'exportar' %>

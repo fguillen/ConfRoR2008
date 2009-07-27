@@ -1,0 +1,42 @@
+<div class="item">
+  <h2>Información sobre el pago</h2>
+
+    <p>Para realizar el pago deberás hacer una transferencia a la siguiente cuenta</p>
+
+    <ul>
+		<li>2100 2129 95 0200267722</li>
+		<li>La Caixa</li>
+		<li>Destinatario: Grupo L'Event</li>
+		<li>Concepto: Conferencia Rails, nombre y apellidos, DNI</li>
+	</ul>
+	
+    <p>Si la transferencia la realizas desde un banco fuera de España, necesitarás el IBAN</p>
+ 
+	<ul>
+		<li>IBAN ES80 2100 2129 9502 0026 7722</li>
+	</ul>
+	
+	<p>Una vez hayamos recibido el pago, actualizaremos la información que aparece en esta página.</p>
+</div>
+
+<div class="item">
+	<h4>¿Ha pagado la conferencia? Importe de 80€</h4>
+	
+	<% if @usuario.pagado? %>
+		<p>Pagado</p>
+	<% else %>
+		<p>No pagado</p>
+	<% end %>
+</div>
+
+<% if @usuario.cena? %>
+<div class="item">
+	<h4><strong>¿Ha pagado la cena? Importe de 40€</strong></h4>
+	
+	<% if @usuario.pagado_cena? %>
+		<p>Pagado</p>
+	<% else %>
+		<p>No pagado</p>
+	<% end %>
+</div>
+<% end %>

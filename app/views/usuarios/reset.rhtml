@@ -1,0 +1,15 @@
+<% title "Recuperar de la contraseña" %>
+
+<div id="item">
+	<h1>Recuperar contraseña</h1>
+	<p><em>Introduce tu correo electrónico y te enviaremos un mensaje para resetear la contraseña.</em></p>
+
+	<% form_tag '/reset' do %>
+	<fieldset>
+		<ol>
+			<li><%= text_field_tag 'correo' %></li>
+			<li><%= image_submit_tag 'send.png' %></li>
+		</ol>
+	</fieldset>
+	<% end %>
+</div>

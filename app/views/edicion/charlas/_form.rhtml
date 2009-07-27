@@ -1,0 +1,47 @@
+<%= error_messages_for 'charla' %>
+
+<!--[form:charla]-->
+<table border="0" cellpadding="5">
+<tr>
+    <td valign="top">
+    <p><label for="charla[autor_ids][]">Autores</label><br/>
+<%= select_tag 'charla[autor_ids][]',
+      options_from_collection_for_select(@autores, :id, :nombre_y_apellidos, @charla.autores.collect{|autor| autor.id}),
+        { :multiple => true, :size => Autor.count }
+%></p>
+    </td>
+    <td valign="top">
+        <p><label for="charla_titulo">Titulo</label><br/>
+        <%= text_field 'charla', 'titulo', {:size => '100'}  %></p>
+        
+        <p><label for="charla_resumen">Resumen</label><br/>
+        <%= text_area 'charla', 'resumen', {:cols => '90', :rows => '10'}  %></p>
+
+        <p><label for="charla_fecha">Fecha</label><br/>
+        <%= datetime_select 'charla', 'fecha'  %></p>
+
+        <p><label for="charla_duracion">Duración</label>: 
+        <%= text_field 'charla', 'duracion', {:size => '3', :maxlength => '3'}  %> minutos</p>
+
+        <p><label for="charla_sala">Sala</label><br/>
+        <%= collection_select :charla, :sala_id, @salas, :id, :nombre %></p>
+
+        <p><label for="charla_aprobada">¿Charla aprobada por la organización?</label>
+        <%= radio_button("charla", "aprobada", true) %>Sí 
+        <%= radio_button("charla", "aprobada", false) %>No</p> 
+		
+        <p><label for="charla_confirmada">¿Charla confirmada por el ponente?</label>
+        <%= radio_button("charla", "confirmada", true) %>Sí 
+        <%= radio_button("charla", "confirmada", false) %>No</p>  
+
+        <p><label for="charla_notas">Notas (internas)</label><br/>
+        <%= text_area 'charla', 'notas', {:cols => '90', :rows => '5'}  %></p>		   
+    </td>
+</tr>
+</table>
+
+
+
+
+<!--[eoform:charla]-->
+

@@ -1,0 +1,19 @@
+<% title "Administración: Ficha charla" %>
+
+<h1><%= @charla.titulo %></h1>
+
+<% for column in Charla.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @charla.send(column.name) %>
+</p>
+<% end %>
+
+<h2>Charla a cargo de:</h2>
+<ul>
+<% @charla.autores.each do |@autor|%>
+    <li><%= image_tag(url_for_file_column(:autor, :avatar), {:width => '25', :align => 'absmiddle',:vspace => '2'}) if !@autor.avatar.nil? %>  <%= link_to @autor.nombre_y_apellidos, {:controller => 'edicion/autores', :action => 'show', :id => @autor.id}%></li>
+<% end %>
+</ul>
+
+<%= link_to 'Editar esta charla', :action => 'edit', :id => @charla %> |
+<%= link_to 'Volver al listado de charlas', :action => 'list' %>

@@ -1,0 +1,29 @@
+<% title "Administración: Listado de salas" %>
+
+<h1>Listing salas</h1>
+
+<table>
+  <tr>
+  <% for column in Sala.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for sala in @salas %>
+  <tr>
+  <% for column in Sala.content_columns %>
+    <td><%=h sala.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => sala %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => sala %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => sala }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @sala_pages.current.previous } if @sala_pages.current.previous %>
+<%= link_to 'Next page', { :page => @sala_pages.current.next } if @sala_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New sala', :action => 'new' %>

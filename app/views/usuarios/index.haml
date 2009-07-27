@@ -1,0 +1,16 @@
+- title "Administración: Usuarios registrados"
+
+%div{:class => "item"}
+  %div{:class => "item_details"}
+    %h3
+      = @title.capitalize + ":"
+      = @usuarios.length
+      usuarios registrados
+  %div{:class => "item_content"}
+    %table{:width => "100%"}
+      %tr{:class => "index"}
+        %th Usuario
+        %th ¿Borrar?
+        %th{:colspan => "2"} Conferencia
+        %th{:colspan => "2"} Cena
+      = render :partial => 'usuario', :collection => @usuarios

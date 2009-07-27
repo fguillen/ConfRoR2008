@@ -1,0 +1,36 @@
+<% title "Listado de ponentes" %>
+
+<div id="items">
+	<% for @autor in @autores %>
+		<div id="<%= @autor.id %>" class="item">
+			<h2><%= @autor.nombre_y_apellidos %></h2>
+			
+			<%=
+			  gravatar(
+			    @autor.email, 
+			    :size => '46', 
+			    :default => "#{base_url}/images/avatar.png", 
+			    :class => "author-avatar",
+			    :alt => "avatar de @autor.nombre_y_apellidos"
+			  )
+			%>
+
+			<p><%= simple_format(auto_link(@autor.resumen)) %></p>
+
+			<p><%= simple_format(auto_link(@autor.web)) %></p>
+
+			<div class="comment">
+				<p><%= @autor.nombre %> participa en las siguientes ponencias</p>
+				<ul>
+					<% for charla in @autor.charlas %>
+						<li><%= link_to charla.titulo, :controller => 'charlas', :action => 'show', :id => charla.id %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<div id="pager">
+	<%= pagination_links @autor_pages %>
+</div>

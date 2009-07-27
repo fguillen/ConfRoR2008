@@ -1,0 +1,89 @@
+<div id="<%= charla.id %>" class="item">
+	<% if logged_in? %>
+		<% if Asistencia.asiste_este_usuario_a_esta_charla?(current_usuario.id, charla.id) %>
+			<%= link_to image_tag('voy.png'), :controller => 'asistencias', :action => 'no_voy_a_ir', :charla_id => charla.id %>
+		<% else %>
+			<%= link_to image_tag('no-voy.png'), :controller => 'asistencias', :action => 'voy_a_ir', :charla_id => charla.id %>
+		<% end %>
+	<% end %>
+	
+	<h2>
+		<%= link_to charla.titulo, :action => 'show', :id => charla.id %>
+	</h2>
+
+	<p class="date">
+		<% if charla.aprobada %>
+			El <%= charla.fecha.strftime("%A %d de %B a las %H:%M") %>
+			en la sala <%= charla.sala.nombre %>
+			(<%= charla.duracion %> minutos)
+		<% else %>
+			Pendiente de aprobación
+		<% end %>
+	</p>
+
+	<p class="authors">
+		<em>Por</em>
+		<% for autor in charla.autores %>
+	   		<%= link_to autor.nombre + " " + autor.apellidos, "/autores/lista##{autor.id}" %>
+		<% end %>
+	</p>
+	
+	<p><%= simple_format(auto_link(charla.resumen)) %></p>
+	
+	<% if current_page?(:controller => 'charlas', :action => 'show') %>
+	<div id="asistentes">
+		<% if @charla.asistentes_publicos.size == 0 %>
+			<p>(No hay asistentes)</p>
+		<% else %>
+			<h6>Hay <%= pluralize( @charla.asistentes_publicos.size, "asistente", "asistentes" ) %></h6>
+			<% if @charla.asistentes_publicos.size > 0 %>
+				<ul>
+				<% @charla.asistentes_publicos.each do |asistente| %>
+					<li><%= link_to asistente.nombre_completo, asistentes_path(:anchor => asistente.id) %></li>
+				<% end %>
+				</ul>
+			<% end %>
+		<% end %>
+	</div>
+	<% end %>
+		
+	<div class="comment">
+		<p class="rate">
+			<% if logged_in? %>
+				<strong>Vota:</strong>
+  			<% voto = Voto.find_by_usuario_id_and_charla_id( current_usuario.id, charla.id ) %>
+  			<% (1..5).each do |puntos| -%>
+  				<% if (!voto.nil?) && puntos == voto.puntos %>
+  					<%= puntos %>
+  				<% else %>
+  					<%= link_to puntos, :controller => 'votos', :action => 'votar', :charla_id => charla.id, :puntos => puntos %>
+  				<% end %>
+  			<% end %>	
+  		<% else %>
+  		<% end %>
+			&nbsp; &nbsp;
+			<% if charla.votos.empty? %>
+    		<strong>Ningún voto todavía</strong>
+			<% else %>
+			  <strong>Nota:</strong> <%= charla.votos_media %> de <%= pluralize( charla.votos.count, "voto" )%>
+			<% end %>
+			
+		</p>
+
+		<p>
+			<% if charla.comentarios_publicados.size == 0 %>
+				<%= link_to("Nuevo comentario", { :action => 'show', :id => charla.id, :anchor => 'comentarios' }, :class => 'no-comments') %>
+			<% else %>
+				<%= link_to( pluralize( charla.comentarios_publicados.size, "comentario" ), { :action => 'show', :id => charla.id, :anchor => 'comentarios' }, :class => 'new-comments') %>
+			<% end %>
+			&nbsp; &nbsp;			
+			<% if current_page?(:controller => 'charlas', :action => 'list') %>
+				<% if charla.asistentes.size == 0 %>
+					<span class="no-people">Ningún asistente</span>
+				<% else %>
+					<%= link_to pluralize( charla.asistentes.size, "asistente", "asistentes" ), { :action => 'show', :id => charla.id }, :class => 'new-people'%>
+				<% end %>
+			<% end %>
+		</p>	
+	</div>
+</div>

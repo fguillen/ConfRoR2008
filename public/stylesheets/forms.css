@@ -1,0 +1,54 @@
+/* 
+	forms.css
+	Sets up some default styling for forms
+	Gives you classes to enhance your forms
+	For text fields, use class .title or .text
+*/
+
+
+fieldset { padding: 0; margin: 0; }
+
+input {
+	border: 1px solid #B7B5AC;
+	font-size: 1em;
+	padding: 0.25em;
+	width: 84%;
+}
+
+input[type="checkbox"] {
+	width: auto;
+}
+
+textarea {
+	border: 1px solid #B7B5AC;
+	height: 100px;
+	width: 85%;
+}
+
+.comment textarea { width: 99%; }
+
+input.text:focus, input.title:focus, textarea:focus, select:focus { border: 1px solid #666; }
+
+#main input[type="image"] {
+	border: none;
+	width: auto;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#main label { font-weight: bold; font-size: 0.9em; }
+
+#register label {
+	display: inline-block;
+	width: 6em;
+	padding-right: 0.25em;
+	text-align: right;
+	font-weight: bold;
+}
+
+#register input {
+	border: 1px solid #B7B5AC;
+	font-size: 1em;
+	padding: 0.25em;
+	width: 50%;
+}

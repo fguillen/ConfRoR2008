@@ -1,0 +1,2 @@
+module Edicion::AutoresHelper
+end

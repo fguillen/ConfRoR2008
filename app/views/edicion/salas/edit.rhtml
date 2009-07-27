@@ -1,0 +1,11 @@
+<% title "Administración: Editar sala" %>
+
+<h1>Editing sala</h1>
+
+<% form_tag :action => 'update', :id => @sala do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @sala %> |
+<%= link_to 'Back', :action => 'list' %>
